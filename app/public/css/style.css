@@ -2,9 +2,6 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-#login{
-  display:none;
-}
 
 #register{
   display: none;
