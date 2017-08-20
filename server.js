@@ -145,6 +145,7 @@ nsp.on('connection', function(socket) {
     socket.username = data.username;
     socket.emoji=data.emoji;
     console.log("data: " + data);
+    console.log("what up");
 /******************************************************************/
 //var j=0;
 
