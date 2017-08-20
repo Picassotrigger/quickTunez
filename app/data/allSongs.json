@@ -1,0 +1,360 @@
+{
+  "songs": [{
+    "title" : "On To Something Good",
+    "artist": "Ashley Monroe"
+  },{
+    "title" : "Ain't Worth The Whiskey",
+    "artist": "Cole Swindell"
+  },{
+    "title" : "Little Red Wagon",
+    "artist": "Miranda Lambert"
+  },{
+    "title" : "Drinking Class",
+    "artist": "Lee Brice"
+  },{
+    "title" : "I Got The Boy",
+    "artist": "Jana Kramer"
+  },{
+    "title" : "Something in the Water",
+    "artist": "Carrie Underwood"
+  },{
+    "title" : "Don't It",
+    "artist": "Billy Currington"
+  },{
+    "title" : "A Guy Walks into a Bar",
+    "artist": "Tyler Farr"
+  },{
+    "title" : "Bartender",
+    "artist": "Lady Antebellum"
+  },{
+    "title" : "Perfect Storm",
+    "artist": "Brad Paisley"
+  },{
+    "title" : "American Kids",
+    "artist": "Kenny Chesney"
+  },{
+    "title" : "Raised by a Good Time",
+    "artist": "Steven Lee Olsen"
+  },{
+    "title" : "That Look",
+    "artist": "Aaron Watson"
+  },{
+    "title" : "Where It's At",
+    "artist": "Dustin Lynch"
+  },{
+    "title" : "Take It On Back",
+    "artist": "Chase Bryant"
+  },{
+    "title" : "Tattoo",
+    "artist": "Hunter Hayes"
+  },{
+    "title" : "Whiskey On My Breath",
+    "artist": "Love and Theft"
+  },{
+    "title" : "Aw Naw",
+    "artist": "Chris Young"
+  },{
+    "title" : "Trouble",
+    "artist": "Gloriana"
+  },{
+    "title" : "Gonna Wanna Tonight",
+    "artist": "Chase Rice"
+  },{
+    "title" : "See You Again",
+    "artist": "Wiz Khalifa"
+  },{
+    "title" : "Hotel",
+    "artist": "Kid Ink"
+  },{
+    "title" : "The Matrimony",
+    "artist": "Wale"
+  },{
+    "title" : "Blessings",
+    "artist": "Big Sean"
+  },{
+    "title" : "Peaches N Cream",
+    "artist": "Snoop Dogg"
+  },{
+    "title" : "That's Love",
+    "artist": "Oddisee"
+  },{
+    "title" : "Trouble",
+    "artist": "Iggy Azalea"
+  },{
+    "title" : "Apparently",
+    "artist": "J. Cole"
+  },{
+    "title" : "I Don't Mind",
+    "artist": "Usher"
+  },{
+    "title" : "Vet Lungs",
+    "artist": "Chief Keef"
+  },{
+    "title" : "Hold You Down",
+    "artist": "DJ Khaled"
+  },{
+    "title" : "Oh My Darling Don't Cry",
+    "artist": "Run The Jewels"
+  },{
+    "title" : "Chasing Time",
+    "artist": "Azealia Banks"
+  },{
+    "title" : "Mural",
+    "artist": "Lupe Fiasco"
+  },{
+    "title" : "Walk Thru",
+    "artist": "Rich Homie Quan"
+  },{
+    "title" : "Love Don't Live Here No More",
+    "artist": "Ghostface Killah"
+  },{
+    "title" : "Errrbody",
+    "artist": "Yo Gotti"
+  },{
+    "title" : "Bend Ova",
+    "artist": "Lil Jon"
+  },{
+    "title" : "Make It Work",
+    "artist": "Tyga"
+  },{
+    "title" : "Dark Comedy Late Show",
+    "artist": "Open Mike Eagle"
+  },{
+    "title" : "Vegas",
+    "artist": "Bad Meets Evil"
+  },{
+    "title" : "Turn Down",
+    "artist": "Rittz"
+  },{
+    "title" : "Should Have Known Better",
+    "artist": "Sufjan Stevens"
+  },{
+    "title" : "Lampshades on Fire",
+    "artist": "Modest Mouse"
+  },{
+    "title" : "Lifted Up",
+    "artist": "Passion Pit"
+  },{
+    "title" : "Hollow Moon",
+    "artist": "AWOLNATION"
+  },{
+    "title" : "Greek Tragedy",
+    "artist": "The Wombats"
+  },{
+    "title" : "There Are Tooo Many of Us",
+    "artist": "Blur"
+  },{
+    "title" : "The Party Line",
+    "artist": "Belle & Sebastian"
+  },{
+    "title" : "California Nights",
+    "artist": "Best Coast"
+  },{
+    "title" : "I'm Ready",
+    "artist": "Twin Shadow"
+  },{
+    "title" : "Reconfiguration",
+    "artist": "Other Lives"
+  },{
+    "title" : "Shut Up and Dance",
+    "artist": "Walk the Moon"
+  },{
+    "title" : "Buffalo",
+    "artist": "Toro y Moi"
+  },{
+    "title" : "Satellites",
+    "artist": "Mew"
+  },{
+    "title" : "Turmoil",
+    "artist": "Mount Eerie"
+  },{
+    "title" : "Violins",
+    "artist": "I'm From Barcelona"
+  },{
+    "title" : "Raising the Skate",
+    "artist": "Speedy Ortiz"
+  },{
+    "title" : "Handsome",
+    "artist": "The Vaccines"
+  },{
+    "title" : "Algiers",
+    "artist": "The Afghan Whigs"
+  },{
+    "title" : "Some Trouble",
+    "artist": "Two Gallants"
+  },{
+    "title" : "Love is Not Control",
+    "artist": "To Kill A King"
+  },{
+    "title" : "The Canyon Wants To Hear C Sharp",
+    "artist": "Andrew Bird"
+  },{
+    "title" : "Blood Red Moon",
+    "artist": "The Hives"
+  },{
+    "title" : "Stoic Resemblance",
+    "artist": "The Helio Sequence"
+  },{
+    "title" : "Where the Nightingale Sings",
+    "artist": "Gang Of Four"
+  },{
+    "title" : "Weight of Love",
+    "artist": "The Black Keys"
+  },{
+    "title" : "Living Zoo",
+    "artist": "Built To Spill"
+  },{
+    "title" : "Rather Be",
+    "artist": "Clean Bandit"
+  },{
+    "title" : "Timber",
+    "artist": "Pitbull"
+  },{
+    "title" : "Magic",
+    "artist": "Coldplay"
+  },{
+    "title" : "Can't Remember to Forget You",
+    "artist": "Shakira"
+  },{
+    "title" : "Team",
+    "artist": "Lorde"
+  },{
+    "title" : "Let Her Go",
+    "artist": "Passenger"
+  },{
+    "title" : "The Man",
+    "artist": "Aloe Blacc"
+  },{
+    "title" : "Shot me Down",
+    "artist": "David Guetta"
+  },{
+    "title" : "Busy Doin' Nothin'",
+    "artist": "Ace Wilder"
+  },{
+    "title" : "Story of My Life",
+    "artist": "One Direction"
+  },{
+    "title" : "Wrecking Ball",
+    "artist": "Miley Cyrus"
+  },{
+    "title" : "Under Control",
+    "artist": "Calvin Harris"
+  },{
+    "title" : "Get Lucky",
+    "artist": "Daft Punk"
+  },{
+    "title" : "Sweater Weather",
+    "artist": "The Neighbourhood"
+  },{
+    "title" : "La La La",
+    "artist": "Naughty Boy"
+  },{
+    "title" : "Treasure",
+    "artist": "Bruno Mars"
+  },{
+    "title" : "Summertime Sadness",
+    "artist": "Lana Del Rey"
+  },{
+    "title" : "Ho Hey",
+    "artist": "The Lumineers"
+  },{
+    "title" : "Faith",
+    "artist": "Blasterjaxx"
+  },{
+    "title" : "Mirrors",
+    "artist": "Justin Timberlake"
+  },{
+    "title" : "Bonfire Heart",
+    "artist": "James Blunt"
+  },{
+    "title" : "Hall of Fame",
+    "artist": "The Script"
+  },{
+    "title" : "Kids In The Dark",
+    "artist": "All Time Low"
+  },{
+    "title" : "Whole Lotta Love",
+    "artist": "Led Zeppelin"
+  },{
+    "title" : "Smoke On The Water",
+    "artist": "Deep Purple"
+  },{
+    "title" : "Paranoid",
+    "artist": "Black Sabbath"
+  },{
+    "title" : "Heroes",
+    "artist": "David Bowie"
+  },{
+    "title" : "Money",
+    "artist": "Pink Floyd"
+  },{
+    "title" : "Gimme All Your Lovin'",
+    "artist": "ZZ Top"
+  },{
+    "title" : "L.A. Woman",
+    "artist": "The Doors"
+  },{
+    "title" : "Burning Heart",
+    "artist": "Survivor"
+  },{
+    "title" : "Juke Box Hero",
+    "artist": "Foreigner"
+  },{
+    "title" : "Basket Case",
+    "artist": "Green Day"
+  },{
+    "title" : "Under The Bridge",
+    "artist": "Red Hot Chili Peppers"
+  },{
+    "title" : "Stairway To Heaven",
+    "artist": "Led Zeppelin"
+  },{
+    "title" : "You Shook Me All Night Long",
+    "artist": "AC/DC"
+  },{
+    "title" : "Listen To The Music",
+    "artist": "The Doobie Brothers"
+  },{
+    "title" : "Space Oddity",
+    "artist": "David Bowie"
+  },{
+    "title" : "Wish You Were Here",
+    "artist": "Pink Floyd"
+  },{
+    "title" : "Layla",
+    "artist": "Eric Clapton"
+  },{
+    "title" : "Brown Eyed Girl",
+    "artist": "Van Morrison"
+  },{
+    "title" : "Under The Pressure",
+    "artist": "The War On Drugs"
+  },{
+    "title" : "Shut Up and Dance",
+    "artist": "Walk the Moon"
+  },{
+    "title" : "Phoenix",
+    "artist": "Veil Of Maya"
+  },{
+    "title" : "Love Is Not Control",
+    "artist": "To Kill a King"
+  },{
+    "title" : "I Am Machine",
+    "artist": "Three Days Grace"
+  },{
+    "title" : "Ban All the Music",
+    "artist": "Nothing But Thieves"
+  },{
+    "title" : "Psycho",
+    "artist": "Muse"
+  },{
+    "title" : "Final Masquerade",
+    "artist": "Linkin Park"
+  },{
+    "title" : "Hurricane",
+    "artist": "Lifehouse"
+  },{
+    "title" : "First Kiss",
+    "artist": "Kid Rock"
+  }]
+}

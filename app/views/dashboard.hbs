@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<body id="{{pageId}}">
+  <!--************ Index************-->
+  <div id="dashboard" class="container">
+    <nav>
+      <div class="nav-wrapper container">
+        <a href="/" class="brand-logo">SongGame</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a id="loginButton" >Login</a></li>
+          <li><a id="registerButton">Register</a></li>
+          <li><a id="chatButton">Chat</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="row">
+      <h1 class="center-align">{{title }}</h1>
+      <h2 class="center-align">Branding Content</h2>
+    </div>
+  </div>
+ <!--************ Login************-->
+  <div id="login" class="container">
+    <div class="row">
+      <div class="col s12 m3"></div>
+      <div class="col s12 m6 center-align">
+        <div class="row">
+          {{!-- <form class="col s12"> --}}
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="username" type="text" class="validate">
+                <label for="username">Username</label>
+              </div>
+            </div>
+            <div class="row">
+              <form action="#">
+                <div class="col s1"></div>
+                <div class="col s3">
+                    <p>
+                      <input name="emoji" type="radio" id="test1" value="em em-baby_chick"/>
+                      <label for="test1"><i class="em em-baby_chick"></i></label>
+                    </p>
+                    <p>
+                      <input name="emoji" type="radio" id="test2" value="em em-alien"/>
+                      <label for="test2"><i class="em em-alien"></i></label>
+                    </p>
+                    <p>
+                      <input name="emoji" type="radio" id="test3"  value="em em-bee"/>
+                      <label for="test3"><i class="em em-bee"></i></label>
+                    </p>
+                    <p>
+                      <input name="emoji" type="radio" id="test4" value="em em-beer"/>
+                      <label for="test4"><i class="em em-beer"></i></label>
+                    </p>
+                </div>
+                <div class="col s3">
+                  <p>
+                    <input name="emoji" type="radio" id="test5" value="em em-boy"/>
+                    <label for="test5"><i class="em em-boy"></i></label>
+                  </p>
+                  <p>
+                    <input name="emoji" type="radio" id="test6" value="em em-coffee"/>
+                    <label for="test6"><i class="em em-coffee"></i></label>
+                  </p>
+                  <p>
+                    <input name="emoji" type="radio" id="test7"  value="em em-crown"/>
+                    <label for="test7"><i class="em em-crown"></i></label>
+                  </p>
+                  <p>
+                    <input name="emoji" type="radio" id="test8" value="em em-dizzy_face"/>
+                    <label for="test8"><i class="em em-dizzy_face"></i></label>
+                  </p>
+                </div>
+                <div class="col s3">
+                  <p>
+                    <input name="emoji" type="radio" id="test9" value="em em-dog"/>
+                    <label for="test9"><i class="em em-dog"></i></label>
+                  </p>
+                  <p>
+                    <input name="emoji" type="radio" id="test10" value="em em-shit"/>
+                    <label for="test10"><i class="em em-shit"></i></label>
+                  </p>
+                  <p>
+                    <input name="emoji" type="radio" id="test11"  value="em em-raised_hands"/>
+                    <label for="test11"><i class="em em-raised_hands"></i></label>
+                  </p>
+                  <p>
+                    <input name="emoji" type="radio" id="test12" value="em em-punch"/>
+                    <label for="test12"><i class="em em-punch"></i></label>
+                  </p>
+                </div>
+                <div class="col s2">
+                  <p>
+                    <input name="emoji" type="radio" id="test13" value="em em-dancer"/>
+                    <label for="test13"><i class="em em-dancer"></i></label>
+                  </p>
+                  <p>
+                    <input name="emoji" type="radio" id="test14" value="em em-wine_glass"/>
+                    <label for="test14"><i class="em em-wine_glass"></i></label>
+                  </p>
+                  <p>
+                    <input name="emoji" type="radio" id="test15"  value="em em-turtle"/>
+                    <label for="test15"><i class="em em-turtle"></i></label>
+                  </p>
+                  <p>
+                    <input name="emoji" type="radio" id="test16" value="em em-stuck_out_tongue_winking_eye"/>
+                    <label for="test16"><i class="em em-stuck_out_tongue_winking_eye"></i></label>
+                  </p>
+                </div>
+              </form>
+            </div>
+
+            {{!-- <div class="row">
+              <div class="input-field col s12">
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+              </div>
+            </div> --}}
+            <div class="col s12 m3" id="LoginError"></div>
+            <button id="loginSubmit" class="btn waves-effect waves-light" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          {{!-- </form> --}}
+        </div>
+      </div>
+      <div class="col s12 m3" ></div>
+    </div>
+  </div>
+  <!--************ Register************-->
+  <div id="register" class="container">
+    <div class="row">
+      <div class="col s12 m3"></div>
+      <div class="col s12 m6 center-align">
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="username" type="text" class="validate">
+                <label for="username">Username</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="confirm-password" type="password" class="validate">
+                <label for="password">Confirm Password</label>
+              </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
+          </form>
+        </div>
+      </div>
+      <div class="col s12 m3"></div>
+    </div>
+  </div>
+<!--************ Chat************-->
+  <div id="chat" class="container">
+    <form name="chatForm" class="col s12">
+      <div class="row">
+        <div class="col s12 m3"></div>
+        <div class="input-field col s12 m6">
+          <input id="chat-user" type="text" class="validate">
+          <label for="name">Name</label>
+        </div>
+        <div class="col s12 m3"></div>
+      </div>
+
+      <div class="row">
+        <div class="col s12 m3"></div>
+        <div class="input-field col s12 m6">
+          <input id="chat-message" type="text" class="validate">
+          <label for="message">Message</label>
+        </div>
+        <div class="col s12 m3"></div>
+      </div>
+
+      <div class="row">
+        <div class="col s12 m3"></div>
+        <div class="input-field col s12 m6 center-align">
+          <button id="chat-button" class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+        <div class="col s12 m3"></div>
+      </div>
+    </form>
+
+    <div class="row">
+      <div class="col s12 m3"></div>
+      <div class="chat-display col s12 m6">
+        <p class="chat-text"></p>
+      </div>
+      <div class="col s12 m3"></div>
+    </div>
+  </div>
+<!--************ Room************-->
+  <div id="room" class="container row">
+    <div class="col s12 m3"></div>
+      <ul class="collection with-header col s12 m6">
+        <li class="collection-header"><h4>Select a room:</h4></li>
+        <a id="play" class="collection-item" name="single" value="1">Play Game</a>
+        {{!-- <a id="room2" class="collection-item" name="multi" value="2">Multi-Player</a> --}}
+      </ul>
+    <div class="col s12 m3"></div>
+  </div>
+
+
+<!--************ Category list************-->
+  <div id="category" class="container">
+    <div class="row">
+      <div class="col s12 m3"></div>
+      <ul class="collection with-header col s12 m6">
+          <li class="collection-header"><h4>Select a category:</h4></li>
+          <a id="cat1" href="#!" class="collection-item" name="cat1" value="1">Category 1</a>
+          <a id="cat2" href="#!" class="collection-item" name="cat2" value="2">Category 2</a>
+          <a id="cat3" href="#!" class="collection-item" name="cat3" value="3">Category 3</a>
+          <a id="cat4" href="#!" class="collection-item" name="cat4" value="4">Category 4</a>
+        </ul>
+      <div class="col s12 m3"></div>
+    </div>
+  <!-- User icons -->
+    <div class="row">
+      <div class="col s12 m3"></div>
+        <div class="col s12 m6">
+          <div class="row">
+            <div class="col s1"></div>
+            <div class="col s2"><i class="medium material-icons center-align">check_box_outline_blank</i></div>
+            <div class="col s2"><i class="medium material-icons center-align">check_box_outline_blank</i></div>
+            <div class="col s2"><i class="medium material-icons center-align">check_box_outline_blank</i></div>
+            <div class="col s2"><i class="medium material-icons center-align">check_box_outline_blank</i></div>
+            <div class="col s2"><i class="medium material-icons center-align">check_box_outline_blank</i></div>
+            <div class="col s1"></div>
+          </div>
+        </div>
+      <div class="col s12 m3"></div>
+    </div>
+  </div>
+
+  <!--************ Game************-->
+  <div id="game" class="container">
+    <div class="row">
+      <div class="col s12 m3"></div>
+      <div class="col s12 m6 center-align">
+        <h4>Time Left</h4>
+        <p><span id="game-clock">0:00</span></p>
+      </div>
+      <div class="col s12 m3"></div>
+    </div>
+
+
+  <!-- Song list -->
+    <div class="row">
+      <div class="col s12 m3"></div>
+      <ul class="collection with-header col s12 m6">
+        <li class="collection-header"><h4>Select a song:</h4></li>
+        <a id="song1" href="#!" class="collection-item" name="song1" value="1">{{song1}}</a>
+        <a id="song2" href="#!" class="collection-item" name="song2" value="2">{{song2}}</a>
+        <a id="song3" href="#!" class="collection-item" name="song3" value="3">{{song3}}</a>
+        <a id="song4" href="#!" class="collection-item" name="song4" value="4">{{song4}}</a>
+      </ul>
+      <div class="col s12 m3"></div>
+    </div>
+
+
+  <!-- User icons -->
+  <!-- TODO This should be a loop using handlebars that dynamically lists the users -->
+    <div class="row">
+      <div class="col s12 m3"></div>
+      <div class="col s12 m6">
+        <div class="row">
+          <div class="col s1"></div>
+          <div id="players"></div>
+          {{!-- <div class="col s2"><i class="medium material-icons">check_box_outline_blank</i></div> --}}
+          {{!-- <div class="col s2"><i class="medium material-icons">check_box_outline_blank</i></div>
+          <div class="col s2"><i class="medium material-icons">check_box_outline_blank</i></div>
+          <div class="col s2"><i class="medium material-icons">check_box_outline_blank</i></div>
+          <div class="col s2"><i class="medium material-icons">check_box_outline_blank</i></div> --}}
+          <div class="col s1"></div>
+        </div>
+      </div>
+      <div class="col s12 m3"></div>
+    </div>
+  </div>
+</body>
