@@ -117,7 +117,7 @@ var songObject = {
 
 };
 
-
+module.exports=songObject;
 
 
 // -------------------   MAIN   -------------------

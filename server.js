@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 var passport = require('passport');
 var session = require('express-session');
-// var FileStore = require('session-file-store')(session);
+ var FileStore = require('session-file-store')(session);
 var bodyParser = require('body-parser');
 var env = require('dotenv').load();
 var exphbs = require('express-handlebars');
@@ -22,7 +22,6 @@ var songObject = require('./app/controllers/songObject.js');
 
 // -----------------   Include the song file   -----------------
 var songData = require('./app/data/allSongs');
-
 
 
 
@@ -62,7 +61,7 @@ app.use(require('morgan')('dev'));
 
 
 // -----------------   Setup Passport   -----------------
-/*app.use(session({
+app.use(session({
   name: 'server-session-cookie-id',
   secret: 'powder blue',
   resave: true,
@@ -72,10 +71,10 @@ app.use(require('morgan')('dev'));
 app.use(function printSession(req, res, next) {
   console.log('req.session', req.session);
   return next();
-});*/
+});
 
 app.use(passport.initialize());
-// app.use(passport.session());  // Persistent login session
+app.use(passport.session());  // Persistent login session
 
 
 
@@ -121,7 +120,6 @@ http.listen(PORT, function() {
 
 
 // -----------------   Initializing rooms   -----------------
-rooms.init();
 
 
 
@@ -152,6 +150,7 @@ io.on('connection', function(socket){
   console.log('a user connected');
   socket.emit('chat message', "UserID: " + socket.handshake.session.uid); 
 */
+rooms.init();
 
 //=======================   Socket.io server   =======================
 //io.attach(server);
@@ -177,12 +176,12 @@ for(var i = 0; i<10;i++){
       if(nsp.adapter.rooms[socket.room].length<3){
         console.log("room: " +socket.room + ", users in room: " + nsp.adapter.rooms[socket.room].length);
 
-        if(!rooms.room[socket.room]){
+       if(!rooms.room[socket.room]){
           var songList = songObject.shuffle(songObject.allSongs);
           console.log("WHERE IS THIS: " +songList);
           var q = rooms.addRoom({
             roomID:socket.room,
-            songObjectList:songList
+           // songObjectList:songList
           });
         }
       // console.log(rooms.room[socket.room].songlist);
@@ -196,9 +195,9 @@ for(var i = 0; i<10;i++){
       // console.log(rooms.room[socket.room].users[socket.id]);
       // console.log(nsp.adapter.rooms);
       // console.log(rooms.room[socket.room].songlist);
-      if(rooms.room[socket.room].userCount == 2){
+      /*if(rooms.room[socket.room].userCount == 2){
         emitNewQuestion(socket.room);
-      }
+      }*/
       nsp.to(socket.room).emit("playersDetails", rooms.room[socket.room].users);
 
       break;
