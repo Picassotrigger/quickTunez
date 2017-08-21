@@ -185,6 +185,11 @@ sock.on("playersDetails",function(data){
 $("#players").html(html);
 });
 
+sock.on("waiting", function(data){
+  console.log("waiting...");
+  //HIDE THE SOMETHING
+})
+
 sock.on("question",function(data){
   console.log("all song data" + data);
   stopwatch.start();

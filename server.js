@@ -196,8 +196,8 @@ for(var i = 0; i<10;i++){
       // console.log(rooms.room[socket.room].users[socket.id]);
       // console.log(nsp.adapter.rooms);
       // console.log(rooms.room[socket.room].songlist);
-      if(rooms.room[socket.room].userCount == 2){
-        emitNewQuestion(socket.room);
+      if(rooms.room[socket.room].userCount == 1){
+        emitWaitPage(socket.room);
       }
       nsp.to(socket.room).emit("playersDetails", rooms.room[socket.room].users);
 
@@ -252,6 +252,13 @@ if(rooms.room[socket.room]){
     console.log('SOCKET.IO player disconnect: for socket '+ socket.id);
 });
 
+function emitWaitPage(data){
+  nsp.to(socket.room).emit("waiting", rooms.room[data]);
+  setTimeout(function(){
+
+      emitNewQuestion(data);
+  }, nextQuestionDelayMs);
+}
 
 function emitNewQuestion(data) {
   //console.log(rooms.room[data]);
