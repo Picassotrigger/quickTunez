@@ -98,7 +98,7 @@ var stopwatch = {
     // TODO Need restart logic in here
 
 
-        time = 30;
+        time = 15;
     }
 
 
@@ -185,6 +185,17 @@ sock.on("playersDetails",function(data){
 $("#players").html(html);
 });
 
+sock.on("waiting", function(data){
+  console.log("waiting...");
+  //HIDE THE SOMETHING
+});
+
+sock.on("timer",function(){
+  //console.log(typeof(data));
+  time=15;
+ $("#game-clock").html(converted);
+});
+
 sock.on("question",function(data){
   console.log("all song data" + data);
   stopwatch.start();
@@ -199,7 +210,7 @@ $("#play").on("click", function(){
   sock.emit("Player Clicked",{username:username,emoji:emoji});
   $("#room").hide(1000);
  $("#game").show(1500);
- stopwatch.start();
+ //stopwatch.start();
 
 
 });
