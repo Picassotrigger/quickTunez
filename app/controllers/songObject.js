@@ -118,7 +118,7 @@ var songObject = {
 };
 
 
-
+module.exports=songObject;
 
 // -------------------   MAIN   -------------------
 // To start the process:
