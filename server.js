@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 var passport = require('passport');
 var session = require('express-session');
-var FileStore = require('session-file-store')(session);
+ var FileStore = require('session-file-store')(session);
 var bodyParser = require('body-parser');
 var env = require('dotenv').load();
 var exphbs = require('express-handlebars');
@@ -22,7 +22,6 @@ var songObject = require('./app/controllers/songObject.js');
 
 // -----------------   Include the song file   -----------------
 var songData = require('./app/data/allSongs');
-
 
 
 
@@ -73,6 +72,7 @@ app.use(function printSession(req, res, next) {
   console.log('req.session', req.session);
   return next();
 });
+
 app.use(passport.initialize());
 app.use(passport.session());  // Persistent login session
 
@@ -107,18 +107,19 @@ var PORT = process.env.PORT || 3000;
 
 
 // -----------------   Express server listener   -----------------
-app.listen(3000, function(err) {
+/*app.listen(3000, function(err) {
   if(!err) {
     console.log('Site is live on port 3000');
   }else {
     console.log(err);
   }
+});*/
+http.listen(PORT, function() {
+    console.log('listening on *:3000');
 });
 
 
-
 // -----------------   Initializing rooms   -----------------
-rooms.init();
 
 
 
@@ -130,8 +131,26 @@ models.sequelize.sync().then(function() {
 });
 
 
+/*var io = require('socket.io')(server);
 
+var Session = require('express-session'),
+    SessionStore = require('session-file-store')(Session);
+    session = Session({
+      store: new SessionStore({ path: './tmp/sessions' }),
+      secret: 'pass',
+      resave: true,
+      saveUninitialized: true
+    });
 
+io.use(function(socket, next) {
+  session(socket.handshake, {}, next);
+});
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.emit('chat message', "UserID: " + socket.handshake.session.uid); 
+*/
+rooms.init();
 
 //=======================   Socket.io server   =======================
 //io.attach(server);
@@ -145,6 +164,7 @@ nsp.on('connection', function(socket) {
     socket.username = data.username;
     socket.emoji=data.emoji;
     console.log("data: " + data);
+    console.log("what up");
 /******************************************************************/
 //var j=0;
 
@@ -156,12 +176,12 @@ for(var i = 0; i<10;i++){
       if(nsp.adapter.rooms[socket.room].length<3){
         console.log("room: " +socket.room + ", users in room: " + nsp.adapter.rooms[socket.room].length);
 
-        if(!rooms.room[socket.room]){
+       if(!rooms.room[socket.room]){
           var songList = songObject.shuffle(songObject.allSongs);
           console.log("WHERE IS THIS: " +songList);
           var q = rooms.addRoom({
             roomID:socket.room,
-            songObjectList:songList
+           // songObjectList:songList
           });
         }
       // console.log(rooms.room[socket.room].songlist);
@@ -175,9 +195,9 @@ for(var i = 0; i<10;i++){
       // console.log(rooms.room[socket.room].users[socket.id]);
       // console.log(nsp.adapter.rooms);
       // console.log(rooms.room[socket.room].songlist);
-      if(rooms.room[socket.room].userCount == 2){
+      /*if(rooms.room[socket.room].userCount == 2){
         emitNewQuestion(socket.room);
-      }
+      }*/
       nsp.to(socket.room).emit("playersDetails", rooms.room[socket.room].users);
 
       break;
