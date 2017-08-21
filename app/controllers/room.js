@@ -1,6 +1,8 @@
 var MAX_NAME_LENGTH = 22;
 var moment = require('moment');
-/*
+var songObject = require('./songObject.js');
+
+/*var songObject = require('./songObject.js');
  * Keeps track of players, including names, points, etc.
  *
  * @return {Object} players object
@@ -16,11 +18,14 @@ function Rooms() {
 Rooms.prototype.init = function(){
   this.roomCount = 0;
   this.room = {};
+  this.winningSocket = null;
 }
 
 
 Rooms.prototype.addRoom = function(room){
+  var exampleSongObject = songObject;
   this.roomCount++;
+  //console.log(exampleSongObject);
   this.room[room.roomID] = {
     users : {},
     userCount : 0,
@@ -32,7 +37,7 @@ Rooms.prototype.addRoom = function(room){
     song4: "",
     music: "",
     songAnswer:"",
-   songlist:room.songObjectList
+   songList:exampleSongObject
   }
 }
 

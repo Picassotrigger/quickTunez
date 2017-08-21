@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 var passport = require('passport');
 var session = require('express-session');
- var FileStore = require('session-file-store')(session);
+//var FileStore = require('session-file-store')(session);
 var bodyParser = require('body-parser');
 var env = require('dotenv').load();
 var exphbs = require('express-handlebars');
@@ -61,20 +61,19 @@ app.use(require('morgan')('dev'));
 
 
 // -----------------   Setup Passport   -----------------
-app.use(session({
-  name: 'server-session-cookie-id',
-  secret: 'powder blue',
-  resave: true,
-  saveUninitialized: true,
-  store: new FileStore()
-}));
-app.use(function printSession(req, res, next) {
-  console.log('req.session', req.session);
-  return next();
-});
-
+// app.use(session({
+//   name: 'server-session-cookie-id',
+//   secret: 'powder blue',
+//   resave: true,
+//   saveUninitialized: true,
+//   store: new FileStore()
+// }));
+// app.use(function printSession(req, res, next) {
+//   console.log('req.session', req.session);
+//   return next();
+// });
 app.use(passport.initialize());
-app.use(passport.session());  // Persistent login session
+//app.use(passport.session());  // Persistent login session
 
 
 
@@ -118,6 +117,9 @@ http.listen(PORT, function() {
     console.log('listening on *:3000');
 });
 
+var nextQuestionDelayMs = 5000; //5secs // how long are players 'warned' next question is coming
+var timeToAnswerMs = 20000; // 20secs // how long players have to answer question
+var timeToEnjoyAnswerMs = 5000; //5secs // how long players have to read answer
 
 // -----------------   Initializing rooms   -----------------
 
@@ -164,7 +166,6 @@ nsp.on('connection', function(socket) {
     socket.username = data.username;
     socket.emoji=data.emoji;
     console.log("data: " + data);
-    console.log("what up");
 /******************************************************************/
 //var j=0;
 
@@ -176,12 +177,12 @@ for(var i = 0; i<10;i++){
       if(nsp.adapter.rooms[socket.room].length<3){
         console.log("room: " +socket.room + ", users in room: " + nsp.adapter.rooms[socket.room].length);
 
-       if(!rooms.room[socket.room]){
-          var songList = songObject.shuffle(songObject.allSongs);
-          console.log("WHERE IS THIS: " +songList);
+        if(!rooms.room[socket.room]){
+          //var songList = songObject.shuffle(songObject.allSongs);
+          //console.log("WHERE IS THIS: " +songList);
           var q = rooms.addRoom({
             roomID:socket.room,
-           // songObjectList:songList
+            //songObjectList:songList
           });
         }
       // console.log(rooms.room[socket.room].songlist);
@@ -195,9 +196,9 @@ for(var i = 0; i<10;i++){
       // console.log(rooms.room[socket.room].users[socket.id]);
       // console.log(nsp.adapter.rooms);
       // console.log(rooms.room[socket.room].songlist);
-      /*if(rooms.room[socket.room].userCount == 2){
+      if(rooms.room[socket.room].userCount == 2){
         emitNewQuestion(socket.room);
-      }*/
+      }
       nsp.to(socket.room).emit("playersDetails", rooms.room[socket.room].users);
 
       break;
@@ -222,6 +223,22 @@ for(var i = 0; i<10;i++){
     nsp.emit('updateMessages', data);
   });
 
+  socket.on("selectedChoice",function(data){
+    console.log(typeof(data));
+    console.log(data);
+    console.log("Answer"+typeof(songObject.correctSongNumber));
+    if(parseInt(data.choice)===songObject.correctSongNumber){
+      var scoreToAdd = (data.time*6);
+      rooms.room[socket.room].users[socket.id].score+=scoreToAdd;
+      //rooms.winningSocket=socket;
+      console.log("afjoawejf:" +data.time);
+
+      console.log("Addedscore"+  rooms.room[socket.room].users[socket.id].score);
+      }
+      nsp.to(socket.room).emit("playersDetails",rooms.room[socket.room].users);
+
+  });
+
   socket.on('disconnect', function() {
     console.log('User Disconnected' + socket.room);
 
@@ -233,33 +250,31 @@ if(rooms.room[socket.room]){
      }
     }
     console.log('SOCKET.IO player disconnect: for socket '+ socket.id);
-
-
-
-
 });
 
 
 function emitNewQuestion(data) {
   //console.log(rooms.room[data]);
-  console.log(rooms.room[data].songlist);
-  var roomQuestions = songObject.stageSongs(rooms.room[data].songlist, 4);
-  console.log("THIS IS STUFF BELOW IT");
-  console.log("name of song" + songObject.arrayStaging[1].title);
-  console.log("data from song 1 " + rooms.room[data].song1);
-  var songtext = songObject.arrayStaging[0].title;
+  //console.log(rooms.room[data].songlist);
+  console.log(rooms.room[data].songList);
+  rooms.room[data].songList.start(songObject.allSongs,4);
+  //var roomQuestions = songObject.stageSongs(rooms.room[data].songlist, 4);
+  // console.log("THIS IS STUFF BELOW IT");
+  // console.log("name of song" + rooms.room[data].songList.arrayStaging[1].title);
+  // console.log("data from song 1 " + rooms.room[data].song1);
+  var songtext = rooms.room[data].songList.arrayStaging[0].title;
   rooms.room[data].song1 = songtext;
-  var songtext = songObject.arrayStaging[1].title;
+  var songtext = rooms.room[data].songList.arrayStaging[1].title;
   rooms.room[data].song2 = songtext;
-  var songtext = songObject.arrayStaging[2].title;
+  var songtext = rooms.room[data].songList.arrayStaging[2].title;
   rooms.room[data].song3 = songtext;
-  var songtext = songObject.arrayStaging[3].title;
+  var songtext = rooms.room[data].songList.arrayStaging[3].title;
   rooms.room[data].song4 = songtext;
-  var correctSongNumber = songObject.correctSongNumber;
+  var correctSongNumber = rooms.room[data].songList.correctSongNumber;
   rooms.room[data].songNum = correctSongNumber;
-  var correctAnswer = songObject.correctSongTitle;
+  var correctAnswer = rooms.room[data].songList.correctSongTitle;
   rooms.room[data].songAnswer = correctAnswer;
-  var music = songObject.correctSongLink;
+  var music = rooms.room[data].songList.correctSongLink;
   rooms.room[data].music = music;
 
   // rooms.room[data].song1 = songOjbect.arrayStaging[0].title.tostring();
@@ -269,13 +284,28 @@ function emitNewQuestion(data) {
   console.log("OMG DOES THIS WORK?");
   console.log(rooms.room[data]);
   nsp.to(socket.room).emit("question", rooms.room[data]);
+  setTimeout(function(){
+
+      emitAnswer(data);
+  }, timeToAnswerMs);
+}
+
+  function emitAnswer(data){
+    nsp.to(socket.room).emit("results", rooms.room[data]);
+    //console.log("THIS WORKS");
+    //console.log(rooms.room[data]);
+    setTimeout(function(){
+
+      emitNewQuestion(data);
+    }, timeToEnjoyAnswerMs);
+  }
   //roooms.room[data].song1=
   //console.log(stuffToEdit.newList);
   // //console.log("IS THIS UNDEFINED? " + rooms.room[data].songlist);
   // rooms.room[data].songlist = stuffToEdit.newList;
   // console.log(rooms.room[data].songlist);
   //songObject.stageSongs(rooms.room[data].songlist, 4);
-}
+
 
 
 });
