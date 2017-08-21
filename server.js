@@ -107,13 +107,13 @@ var PORT = process.env.PORT || 3000;
 
 
 // -----------------   Express server listener   -----------------
-/*app.listen(3000, function(err) {
-  if(!err) {
-    console.log('Site is live on port 3000');
-  }else {
-    console.log(err);
-  }
-});*/
+// app.listen(3000, function(err) {
+//   if(!err) {
+//     console.log('Site is live on port 3000');
+//   }else {
+//     console.log(err);
+//   }
+// });
 http.listen(PORT, function() {
     console.log('listening on *:3000');
 });
@@ -148,7 +148,7 @@ io.use(function(socket, next) {
 
 io.on('connection', function(socket){
   console.log('a user connected');
-  socket.emit('chat message', "UserID: " + socket.handshake.session.uid); 
+  socket.emit('chat message', "UserID: " + socket.handshake.session.uid);
 */
 rooms.init();
 
