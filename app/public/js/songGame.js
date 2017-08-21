@@ -1,8 +1,10 @@
 //---------------------   CAPTURING USER CHOICES   ---------------------//
+var io = require('socket.io')(http);
+
 var roomChosen = 0;
 var catChosen = 0;
 var songChosen = 0;
-var sock=io.connect("/my");
+var sock = io.connect("/my");
 var username;
 var emoji;
 
@@ -25,7 +27,7 @@ function songChoice() {
 
 // Choosing room
 $("#room1").on('click', roomChoice);
-  
+
 $("#room2").on('click', roomChoice);
 
 
@@ -85,7 +87,7 @@ var stopwatch = {
        time--;
        if(time === 0) {
       clearInterval(intervalId);
-      //updateTimeOut();      
+      //updateTimeOut();
     }
     }
     else {
@@ -160,7 +162,7 @@ $("#loginSubmit").on("click",function(e){
 e.preventDefault();
   username=$("#username").val().trim();
  emoji=$('input[name="emoji"]:checked').val();
-   console.log("Login Username: " + username + "Login Emoji: " + emoji);  
+   console.log("Login Username: " + username + "Login Emoji: " + emoji);
   $("#login").hide(1000);
   $("#room").show(1500);
 });
@@ -173,20 +175,20 @@ sock.on("playersDetails",function(data){
         '<p style="text-align:center;">' + data[key].score + '</p>' +
         '<i style="text-align:center;" class="em '+ data[key].emoji + '"></i>'+
         '<p style="text-align:center;">'+ data[key].userName + '</p>' +
-      '</div>'; 
-       
-}  
-$("#players").html(html); 
+      '</div>';
+
+}
+$("#players").html(html);
 });
 
 sock.on("question",function(data){
   console.log(data);
 });
-$("#play").on("click", function(){  
-  sock.emit("Player Clicked",{username:username,emoji:emoji});  
+$("#play").on("click", function(){
+  sock.emit("Player Clicked",{username:username,emoji:emoji});
   $("#room").hide(1000);
  $("#game").show(1500);
- stopwatch.start(); 
+ stopwatch.start();
 
 
 });
@@ -196,4 +198,3 @@ sock.on("roomObject", function(data){
   console.log(data);
 
 })
-
