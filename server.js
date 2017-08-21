@@ -25,7 +25,6 @@ var songData = require('./app/data/allSongs');
 
 
 
-
 // ----------------   Setup song file at app/data/allSongs   ----------------
 app.set('appData', songData);
 
@@ -122,9 +121,7 @@ var nextQuestionDelayMs = 5000; //5secs // how long are players 'warned' next qu
 var timeToAnswerMs = 20000; // 20secs // how long players have to answer question
 var timeToEnjoyAnswerMs = 5000; //5secs // how long players have to read answer
 
-
 // -----------------   Initializing rooms   -----------------
-rooms.init();
 
 
 
@@ -136,8 +133,26 @@ models.sequelize.sync().then(function() {
 });
 
 
+/*var io = require('socket.io')(server);
 
+var Session = require('express-session'),
+    SessionStore = require('session-file-store')(Session);
+    session = Session({
+      store: new SessionStore({ path: './tmp/sessions' }),
+      secret: 'pass',
+      resave: true,
+      saveUninitialized: true
+    });
 
+io.use(function(socket, next) {
+  session(socket.handshake, {}, next);
+});
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.emit('chat message', "UserID: " + socket.handshake.session.uid);
+*/
+rooms.init();
 
 //=======================   Socket.io server   =======================
 //io.attach(server);
@@ -181,9 +196,9 @@ for(var i = 0; i<10;i++){
       // console.log(rooms.room[socket.room].users[socket.id]);
       // console.log(nsp.adapter.rooms);
       // console.log(rooms.room[socket.room].songlist);
-      if(rooms.room[socket.room].userCount == 2){
+      /*if(rooms.room[socket.room].userCount == 2){
         emitNewQuestion(socket.room);
-      }
+      }*/
       nsp.to(socket.room).emit("playersDetails", rooms.room[socket.room].users);
 
       break;

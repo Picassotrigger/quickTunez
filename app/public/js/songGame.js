@@ -1,8 +1,10 @@
 //---------------------   CAPTURING USER CHOICES   ---------------------//
+//var io = require('socket.io')(http);
+
 var roomChosen = 0;
 var catChosen = 0;
 var songChosen = 0;
-var sock=io.connect("/my");
+var sock = io.connect("/my");
 var username;
 var emoji;
 var songChosen ;
@@ -184,7 +186,14 @@ $("#players").html(html);
 });
 
 sock.on("question",function(data){
-  console.log(data);
+  console.log("all song data" + data);
+  stopwatch.start();
+
+  $("#song1").text(data.song1);
+  $("#song2").text(data.song2)
+  $("#song3").text(data.song3)
+  $("#song4").text(data.song4)
+
 });
 $("#play").on("click", function(){
   sock.emit("Player Clicked",{username:username,emoji:emoji});
