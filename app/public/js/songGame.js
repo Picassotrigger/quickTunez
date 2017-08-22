@@ -22,6 +22,10 @@ function catChoice() {
 function songChoice() {
   songChosen = $(this).attr("value");
   var newTime = time;
+  $("#s1").removeClass("song1");
+  $("#s2").removeClass("song2");
+  $("#s3").removeClass("song3");
+  $("#s4").removeClass("song4");
   //console.log("songChosen: " + songChosen);
   sock.emit("selectedChoice",{choice:songChosen, time:newTime});
 }
@@ -46,13 +50,13 @@ $("#cat4").on('click', catChoice);
 
 
 //Choosing song
-$("#song1").on('click', songChoice);
+$(".song1").on('click', songChoice);
 
-$("#song2").on('click', songChoice);
+$(".song2").on('click', songChoice);
 
-$("#song3").on('click', songChoice);
+$(".song3").on('click', songChoice);
 
-$("#song4").on('click', songChoice);
+$(".song4").on('click', songChoice);
 
 
 
@@ -176,7 +180,7 @@ sock.on("playersDetails",function(data){
 
   var html=" ";
   for(key in data){
-  html+='<div class="col s2" style="text-align: center;">' +
+  html+='<div class="col s2 player" style="text-align: center;">' +
         '<p style="text-align:center;">' + data[key].score + '</p>' +
         '<i style="text-align:center;" class="em '+ data[key].emoji + '"></i>'+
         '<p style="text-align:center;">'+ data[key].userName + '</p>' +
@@ -200,19 +204,24 @@ sock.on("timer",function(){
 sock.on("question",function(data){
   console.log("all song data" + data);
   stopwatch.start();
+  $("#s1").addClass("song1");
+  $("#s2").addClass("song2");
+  $("#s3").addClass("song3");
+  $("#s4").addClass("song4");
+  $(".song1").text(data.song1);
+  $(".song2").text(data.song2)
+  $(".song3").text(data.song3)
+  $(".song4").text(data.song4)
 
-  $("#song1").text(data.song1);
-  $("#song2").text(data.song2)
-  $("#song3").text(data.song3)
-  $("#song4").text(data.song4)
+console.log(data.music);
 
   $("#audioElement").html(
-    "<audio controls autoplay><source src='" + 'https://p.scdn.co/mp3-preview/fde5f6c570eb2ecaca797c0984a247a47d3fdc21?cid=69e888fc0a8549f596e66755ea883a64' + "' type='audio/mpeg'></audio>"
+    "<audio controls autoplay><source src='" + data.music + "' type='audio/mpeg'></audio>"
 
   )
 
   //$("#songLink").attr("src", "https://p.scdn.co/mp3-preview/fde5f6c570eb2ecaca797c0984a247a47d3fdc21?cid=69e888fc0a8549f596e66755ea883a64");
-  console.log("SONG LINK" + data.songList[correctSongLink]);
+  //console.log("SONG LINK" + data.songList[correctSongLink]);
 
 });
 $("#play").on("click", function(){

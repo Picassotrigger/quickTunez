@@ -83,7 +83,7 @@ var songObject = {
   spotify: function() {
     var Spotify = require('node-spotify-api');
 
-    var media = this.correctSongTitle;
+    var media = this.correctSongTitle + " " + this.correctSongArtist;
 
     var spotify = new Spotify({
       id: "69e888fc0a8549f596e66755ea883a64",

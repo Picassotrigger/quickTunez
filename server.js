@@ -1,4 +1,10 @@
 // -----------------   Dependencies   -----------------
+//round incrementation: endgame page
+//spotify link
+//results page
+//fix the end game/end game page
+//plan presentation
+
 var express = require('express');
 var app = express();
 var passport = require('passport');
@@ -17,7 +23,8 @@ var path = require('path');
 
 var rooms = require('./app/controllers/room.js');
 var songObject = require('./app/controllers/songObject.js');
-
+//console.log(“songObject: “, songObject);
+//results page
 
 
 // -----------------   Include the song file   -----------------
@@ -174,17 +181,23 @@ for(var i = 0; i<10;i++){
       socket.room = "room"+i;
       socket.join(socket.room);
       //console.log("length of room" +nsp.adapter.rooms[socket.room].length);
-      if(nsp.adapter.rooms[socket.room].length<4){
+      if(nsp.adapter.rooms[socket.room].length<3){
         console.log("room: " +socket.room + ", users in room: " + nsp.adapter.rooms[socket.room].length);
 
         if(!rooms.room[socket.room]){
+          //var something = songObject.start(songObject.allSongs,4);
+          //console.log(something);
           //var songList = songObject.shuffle(songObject.allSongs);
+
           //console.log("WHERE IS THIS: " +songList);
           var q = rooms.addRoom({
             roomID:socket.room,
             //songObjectList:songList
           });
         }
+          //console.log(rooms.room[socket.room].songList.allSongs);
+          //console.log("testing: " +rooms.room[socket.room].songObjectList);
+
       // console.log(rooms.room[socket.room].songlist);
         var p = rooms.addUserIntoRoom({
           userID: socket.id,
@@ -264,26 +277,34 @@ function emitWaitPage(data){
 function emitNewQuestion(data) {
   //console.log(rooms.room[data]);
   //console.log(rooms.room[data].songlist);
-  console.log(rooms.room[data].songList);
-  rooms.room[data].songList.start(songObject.allSongs,4);
-  //var roomQuestions = songObject.stageSongs(rooms.room[data].songlist, 4);
+  //console.log("check this" + rooms.room[data].songList);
+  //console.log(rooms.room[data].songlist);
+  var roomQuestions = songObject.stageSongs(songObject.allSongs, 4);
+console.log("music"+songObject.correctSongTitle);
+ spotify(songObject.correctSongTitle);
+ //console.log("link"+songObject.correctSongLink);
+  //console.log("Thisis what i am looking for " +music)
+  //var roomQuestions = rooms.room[data].songList.stageSongs(rooms.room[data].songList, 4);
   // console.log("THIS IS STUFF BELOW IT");
   // console.log("name of song" + rooms.room[data].songList.arrayStaging[1].title);
   // console.log("data from song 1 " + rooms.room[data].song1);
-  var songtext = rooms.room[data].songList.arrayStaging[0].title;
+  var songtext = songObject.arrayStaging[0].title;
   rooms.room[data].song1 = songtext;
-  var songtext = rooms.room[data].songList.arrayStaging[1].title;
+  var songtext = songObject.arrayStaging[1].title;
   rooms.room[data].song2 = songtext;
-  var songtext = rooms.room[data].songList.arrayStaging[2].title;
+  var songtext = songObject.arrayStaging[2].title;
   rooms.room[data].song3 = songtext;
-  var songtext = rooms.room[data].songList.arrayStaging[3].title;
+  var songtext = songObject.arrayStaging[3].title;
   rooms.room[data].song4 = songtext;
-  var correctSongNumber = rooms.room[data].songList.correctSongNumber;
+  var correctSongNumber = songObject.correctSongNumber;
   rooms.room[data].songNum = correctSongNumber;
-  var correctAnswer = rooms.room[data].songList.correctSongTitle;
+  var correctAnswer = songObject.correctSongTitle;
   rooms.room[data].songAnswer = correctAnswer;
-  var music = rooms.room[data].songList.correctSongLink;
-  rooms.room[data].music = music;
+  //var music = songObject.spotify(correctAnswer);
+  //console.log("WHAT IS THIS HERE SPOTIFY " + music);
+  //grooms.room[data].music = music;
+console.log(songObject.correctSongLink);
+rooms.room[data].music=songObject.correctSongLink ;
 
   // rooms.room[data].song1 = songOjbect.arrayStaging[0].title.tostring();
   // rooms.room[data].song2 = songOjbect.arrayStaging[1].title.tostring();
@@ -318,7 +339,7 @@ function emitNewQuestion(data) {
 
 
 
-});
+
 
 
 //
@@ -333,3 +354,38 @@ function emitNewQuestion(data) {
 //
 //     //return userData;
 // }
+ function spotify (song) {
+  var Spotify = require('node-spotify-api');
+
+   var media = song;
+   //var media=song;
+
+    var spotify = new Spotify({
+      id: "69e888fc0a8549f596e66755ea883a64",
+      secret: "dfbe980a6614428b9e0b35b5a1e2ec44"
+    });
+
+    spotify
+      .search({
+        type: 'track',
+        query: media,
+        limit: 1
+      })
+      .then(function(response) {
+         songObject.correctSongLink = response.tracks.items[0].preview_url;
+        //rooms.room[data].music=response.tracks.items[0].preview_url;
+        //console.log("song"+song);
+
+
+
+        console.log("songObject.correctSongLink: " + response.tracks.items[0].preview_url); // Preview link
+
+      //return song;
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+  }
+
+
+  });
