@@ -18,6 +18,7 @@ body {
 
 #room{
   display:none;
+  text-align: center;
 }
 
 #category{
@@ -59,6 +60,25 @@ audio{
 .backgroundT{
   background-color: rgba(255,255, 255, 0.5);
   padding: 0 20px 20px 20px;
+}
+
+.player{
+  background-color: rgba(255,255, 255, 0.5);
+  border: solid 1px gray;
+}
+
+/*songs background*/
+.collection{
+  background-color: rgba(255,255, 255, 0.5);
+}
+.collection-header{
+  background-color: rgba(255,255, 255, 0.5);
+}
+.collection-item{
+  background-color: rgba(255,255, 255, 0.5);
+}
+.with-header{
+  background-color: rgba(255,255, 255, 0.5);  
 }
 
 label focus color
