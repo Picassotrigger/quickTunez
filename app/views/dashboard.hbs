@@ -10,7 +10,7 @@
       <div class="col s2 m4 l4"><p></p></div>
     </div>
     <div class="row">
-      <div class="col s12 m3">&nbsp;</div>
+      <div class="col hide-on-small-only m3">&nbsp;</div>
       <div class="col s12 m6 center-align">
         <div class="row">
           {{!-- <form class="col s12"> --}}
@@ -102,10 +102,10 @@
           {{!-- </form> --}}
         </div>
       </div>
-      <div class="col s12 m3" ></div>
+      <div class="col hide-on-small-only m3" ></div>
     </div>
   </div>
-  
+
 <!--************ Room************-->
   <div id="room" class="container row">
     <div class="row">
@@ -113,20 +113,20 @@
       <div class="col s8 m4 l4"><img id="splashLogo2" src="images/quicktunesLOGO.png"></div>
       <div class="col s2 m4 l4"><p></p></div>
     </div>
-    <div class="col s12 m3">&nbsp;</div>
+    <div class="col hide-on-small-only m3">&nbsp;</div>
       <ul class="collection with-header col s12 m6">
         <li class="collection-header"><h4>Select a room:</h4></li>
         <a id="play" class="collection-item" name="single" value="1">Play Game</a>
         {{!-- <a id="room2" class="collection-item" name="multi" value="2">Multi-Player</a> --}}
       </ul>
-    <div class="col s12 m3"></div>
+    <div class="col hide-on-small-only m3"></div>
   </div>
 
 
 <!--************ Category list************-->
   <div id="category" class="container">
     <div class="row">
-      <div class="col s12 m3">&nbsp;</div>
+      <div class="col hide-on-small-only m3">&nbsp;</div>
       <ul class="collection with-header col s12 m6">
           <li class="collection-header"><h4>Select a category:</h4></li>
           <a id="cat1" href="#!" class="collection-item" name="cat1" value="1">Category 1</a>
@@ -134,11 +134,11 @@
           <a id="cat3" href="#!" class="collection-item" name="cat3" value="3">Category 3</a>
           <a id="cat4" href="#!" class="collection-item" name="cat4" value="4">Category 4</a>
         </ul>
-      <div class="col s12 m3">&nbsp;</div>
+      <div class="col hide-on-small-only m3">&nbsp;</div>
     </div>
   <!-- User icons -->
     <div class="row">
-      <div class="col s12 m3">&nbsp;</div>
+      <div class="col hide-on-small-only m3">&nbsp;</div>
         <div class="col s12 m6">
           <div class="row">
             <div class="col s1"></div>
@@ -150,30 +150,35 @@
             <div class="col s1"></div>
           </div>
         </div>
-      <div class="col s12 m3">&nbsp;</div>
+      <div class="col hide-on-small-only m3">&nbsp;</div>
     </div>
   </div>
 
   <!--************ Game************-->
   <div id="game" class="container">
+    <div id="audioElement"></div>
     <div class="row">
-      <div class="col s2 m4 l4"><p></p></div>
-      <div class="col s8 m4 l4"><img id="splashLogo2" src="images/quicktunesLOGO.png"></div>
-      <div class="col s2 m4 l4"><p></p></div>
+      <div class="col s2 m4 l2"><p></p></div>
+      <div class="col s8 m4 l5"><img id="splashLogo2" src="images/quicktunesLOGO.png"></div>
+      <div class="col s12 m6 l3 center-align">
+        <h4>Time Left</h4>
+        <p><span id="game-clock">0:00</span></p>
+      </div>
+      <div class="col s2 m4 l2"><p></p></div>
     </div>
-    <div class="row">
-      <div class="col s12 m3">&nbsp;</div>
+    <!-- <div class="row">
+      <div class="col hide-on-small-only m3">&nbsp;</div>
       <div class="col s12 m6 center-align">
         <h4>Time Left</h4>
         <p><span id="game-clock">0:00</span></p>
       </div>
-      <div class="col s12 m3">&nbsp;</div>
-    </div>
+      <div class="col hide-on-small-only m3">&nbsp;</div>
+    </div> -->
 
 
   <!-- Song list -->
-    <div class="row">
-      <div class="col s12 m3">&nbsp;</div>
+    <div class="row center-align">
+      <div class="col hide-on-small-only m3">&nbsp;</div>
       <ul class="collection with-header col s12 m6">
         <li class="collection-header"><h4>Select a song:</h4></li>
         <a id="song1" href="#!" class="collection-item" name="song1" value="1">{{song1}}</a>
@@ -181,14 +186,14 @@
         <a id="song3" href="#!" class="collection-item" name="song3" value="3">{{song3}}</a>
         <a id="song4" href="#!" class="collection-item" name="song4" value="4">{{song4}}</a>
       </ul>
-      <div class="col s12 m3">&nbsp;</div>
+      <div class="col hide-on-small-only m3">&nbsp;</div>
     </div>
 
 
   <!-- User icons -->
   <!-- TODO This should be a loop using handlebars that dynamically lists the users -->
     <div class="row">
-      <div class="col s12 m2">&nbsp;</div>
+      <div class="col hide-on-small-only m2">&nbsp;</div>
       <div class="col s12 m8">
         <div class="row">
           <div class="col s1">&nbsp;</div>
@@ -201,7 +206,7 @@
           <div class="col s1">&nbsp;</div>
         </div>
       </div>
-      <div class="col s12 m2">&nbsp;</div>
+      <div class="col hide-on-small-only m2">&nbsp;</div>
     </div>
   </div>
 </body>

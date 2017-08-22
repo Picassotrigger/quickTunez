@@ -118,7 +118,7 @@ http.listen(PORT, function() {
 });
 
 var nextQuestionDelayMs = 5000; //5secs // how long are players 'warned' next question is coming
-var timeToAnswerMs = 20000; // 20secs // how long players have to answer question
+var timeToAnswerMs = 15000; // 15secs // how long players have to answer question
 var timeToEnjoyAnswerMs = 5000; //5secs // how long players have to read answer
 
 // -----------------   Initializing rooms   -----------------
@@ -174,7 +174,7 @@ for(var i = 0; i<10;i++){
       socket.room = "room"+i;
       socket.join(socket.room);
       //console.log("length of room" +nsp.adapter.rooms[socket.room].length);
-      if(nsp.adapter.rooms[socket.room].length<3){
+      if(nsp.adapter.rooms[socket.room].length<4){
         console.log("room: " +socket.room + ", users in room: " + nsp.adapter.rooms[socket.room].length);
 
         if(!rooms.room[socket.room]){
@@ -196,8 +196,8 @@ for(var i = 0; i<10;i++){
       // console.log(rooms.room[socket.room].users[socket.id]);
       // console.log(nsp.adapter.rooms);
       // console.log(rooms.room[socket.room].songlist);
-      if(rooms.room[socket.room].userCount == 2){
-        emitNewQuestion(socket.room);
+      if(rooms.room[socket.room].userCount == 1){
+        emitWaitPage(socket.room);
       }
       nsp.to(socket.room).emit("playersDetails", rooms.room[socket.room].users);
 
@@ -252,6 +252,14 @@ if(rooms.room[socket.room]){
     console.log('SOCKET.IO player disconnect: for socket '+ socket.id);
 });
 
+function emitWaitPage(data){
+  nsp.to(socket.room).emit("waiting", rooms.room[data]);
+
+  setTimeout(function(){
+
+      emitNewQuestion(data);
+  }, nextQuestionDelayMs);
+}
 
 function emitNewQuestion(data) {
   //console.log(rooms.room[data]);
@@ -284,8 +292,9 @@ function emitNewQuestion(data) {
   console.log("OMG DOES THIS WORK?");
   console.log(rooms.room[data]);
   nsp.to(socket.room).emit("question", rooms.room[data]);
-  setTimeout(function(){
 
+  setTimeout(function(){
+    nsp.to(socket.room).emit("timer");
       emitAnswer(data);
   }, timeToAnswerMs);
 }
@@ -294,8 +303,9 @@ function emitNewQuestion(data) {
     nsp.to(socket.room).emit("results", rooms.room[data]);
     //console.log("THIS WORKS");
     //console.log(rooms.room[data]);
-    setTimeout(function(){
 
+    setTimeout(function(){
+      nsp.to(socket.room).emit("timer");
       emitNewQuestion(data);
     }, timeToEnjoyAnswerMs);
   }

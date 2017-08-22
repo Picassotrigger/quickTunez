@@ -33,7 +33,7 @@ body {
     background-image: url("../images/bwsplash.jpg");
 
     /* Full height */
-    height: 100%; 
+    height: 100%;
 
     /* Center and scale the image nicely */
     background-position: center;
@@ -43,8 +43,17 @@ body {
 
 #splashLogo2{
   object-fit: contain;
-  height: 100%; 
+  height: 100%;
   width: 100%;
+}
+
+.em{
+  height: 40px;
+  width: 40px;
+}
+
+audio{
+  display: none;
 }
 
 label focus color
