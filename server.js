@@ -181,7 +181,7 @@ for(var i = 0; i<10;i++){
       socket.room = "room"+i;
       socket.join(socket.room);
       //console.log("length of room" +nsp.adapter.rooms[socket.room].length);
-      if(nsp.adapter.rooms[socket.room].length<3){
+      if(nsp.adapter.rooms[socket.room].length<5){
         console.log("room: " +socket.room + ", users in room: " + nsp.adapter.rooms[socket.room].length);
 
         if(!rooms.room[socket.room]){
