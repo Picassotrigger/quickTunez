@@ -61,6 +61,7 @@ $("#song4").on('click', songChoice);
 // TODO Need to add the restart logic to the count method.
 
 var intervalId;
+var converted;
 var clockRunning = false;
 var time=0;
 var stopwatch = {
@@ -102,7 +103,7 @@ var stopwatch = {
     }
 
 
-    var converted = stopwatch.timeConverter(time);
+      converted = stopwatch.timeConverter(time);
 
     $("#game-clock").html(converted);
   },
@@ -204,6 +205,14 @@ sock.on("question",function(data){
   $("#song2").text(data.song2)
   $("#song3").text(data.song3)
   $("#song4").text(data.song4)
+
+  $("#audioElement").html(
+    "<audio controls autoplay><source src='" + 'https://p.scdn.co/mp3-preview/fde5f6c570eb2ecaca797c0984a247a47d3fdc21?cid=69e888fc0a8549f596e66755ea883a64' + "' type='audio/mpeg'></audio>"
+
+  )
+
+  //$("#songLink").attr("src", "https://p.scdn.co/mp3-preview/fde5f6c570eb2ecaca797c0984a247a47d3fdc21?cid=69e888fc0a8549f596e66755ea883a64");
+  console.log("SONG LINK" + data.songList[correctSongLink]);
 
 });
 $("#play").on("click", function(){

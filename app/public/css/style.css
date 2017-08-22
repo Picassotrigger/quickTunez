@@ -28,6 +28,39 @@ body {
   display:none;
 }
 
+#gameBody{
+   /* The image used */
+    background-image: url("../images/bwsplash.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#splashLogo2{
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.em{
+  height: 40px;
+  width: 40px;
+}
+
+audio{
+  display: none;
+}
+
+.backgroundT{
+  background-color: rgba(255,255, 255, 0.5);
+  padding: 0 20px 20px 20px;
+}
+
 label focus color
   .input-field input[type=text]:focus + label {
     color: #039be5;
