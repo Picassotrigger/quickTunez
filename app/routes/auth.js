@@ -10,9 +10,9 @@ module.exports = function(app, passport) {
   app.get('/signin', authController.signin);
 
 
-  app.get('/dashboard', isLoggedIn, authController.dashboard);
+//   app.get('/dashboard', isLoggedIn, authController.dashboard);
 
-//   app.get('/dashboard', authController.dashboard);
+  app.get('/dashboard', authController.dashboard);
 
 
   app.get('/logout', authController.logout);
