@@ -56,6 +56,11 @@ audio{
   display: none;
 }
 
+.backgroundT{
+  background-color: rgba(255,255, 255, 0.5);
+  padding: 0 20px 20px 20px;
+}
+
 label focus color
   .input-field input[type=text]:focus + label {
     color: #039be5;
